@@ -65,8 +65,7 @@ RUN    mkdir -p /tmp/resources \
              done; \
            done; \
          done; \
-       done \
-    && ln -s studio/devstudio devstudio
+       done
 
 # This script starts and cleanly shuts down JBDS and the Xvnc server
 ADD resources/start.sh /usr/local/bin/
