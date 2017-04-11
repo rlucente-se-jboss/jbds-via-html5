@@ -74,12 +74,11 @@ blah blah blah add a new user with permissions to change password and create new
     cd    
     git clone https://github.com/rlucente-se-jboss/jbds-via-html5.git
     cd jbds-via-html5/resources
-    python3 -m http.server
+    python -m SimpleHTTPServer
 
 In separate terminal,
 
     cd ~/jbds-via-html5
     oc new-app . --name=jbds --strategy=docker
-    oc start-build --from-dir=.
 
 
