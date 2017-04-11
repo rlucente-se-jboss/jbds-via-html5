@@ -69,7 +69,7 @@ ADD resources/start.sh /usr/local/bin/
 
 # This file is used to create a temporary passwd file for use by
 # the NSS wrapper so that the openbox window manager can launch
-# correctly.  OSE will use a non-deterministic user id, so we have
+# correctly.  OCP will use a non-deterministic user id, so we have
 # to provide a valid passwd entry for that UID for openbox
 ADD resources/passwd.template /usr/local/share/
 
