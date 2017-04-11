@@ -17,10 +17,10 @@ you'll need to adjust instructions for other installed platforms.
 Create the guacamole mysql instance and then modify to use a
 persistent volume.
 
-   oc new-app mysql MYSQL_USER=guacamole MYSQL_PASSWORD=guacamole \
-       MYSQL_DATABASE=guacamole
-   oc volume dc/mysql --add --name=mysql-volume-1 -t pvc --claim-name=mysql-data \
-       --claim-size=1G --overwrite
+    oc new-app mysql MYSQL_USER=guacamole MYSQL_PASSWORD=guacamole \
+        MYSQL_DATABASE=guacamole
+    oc volume dc/mysql --add --name=mysql-volume-1 -t pvc \
+        --claim-name=mysql-data --claim-size=1G --overwrite
 
 Use the guacamole docker image to create a database initialization
 script.
