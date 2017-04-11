@@ -46,9 +46,6 @@ RUN    echo 'export DISPLAY=:1' >> /etc/xdg/openbox/environment \
 # Redundant libraries that varied by version resulted in JBDS
 # crashes.
 #
-# The final instruction adds back a soft link that apparently is
-# not preserved by docker during the installation.
-#
 RUN    mkdir -p /tmp/resources \
     && cd /tmp/resources \
     && curl -L -O http://$FILE_HOST:8000/$JBDS_JAR \
