@@ -95,7 +95,7 @@ own instances of JBoss Developer Studio.  Also, make sure to assign
 the permissions "Create new connections" and "Change own password".
 Click "Save" to add the user.
 
-## Build the JBDS App
+## Build the JBDS Application
 Build and deploy the JBoss Developer Studio container image.  To
 limit the size of the container image, some files are downloaded
 at build time.
