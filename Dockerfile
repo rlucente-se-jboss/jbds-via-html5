@@ -21,6 +21,7 @@ RUN    dnf -y update \
            gtk2 \
            java-1.8.0-openjdk-devel \
            liberation-sans-fonts \
+           webkitgtk \
            maven \
            nss_wrapper \
            openbox \
