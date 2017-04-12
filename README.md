@@ -39,10 +39,10 @@ output.  Put this output into a sql file.
     oc logs guacamole > initdb.sql
     oc delete pod guacamole
 
-At this point, the mysql pod should have fully started, but it may
-have restart due to the deployment configuration change to add the
-persistent volume claim).  Get the list of running pods to determine
-the pod-id for mysql.
+At this point, the mysql pod should be fully running, but it may
+have restarted due to the deployment configuration change to add
+the persistent volume claim).  Get the list of running pods to
+determine the pod-id for mysql.
 
     oc get pods
 
@@ -61,7 +61,7 @@ initialize the database:
 
 Now that the database is prepped, create an application where both
 guacamole and guacd are in a single pod.  The additional parameters
-will connect it to its database.
+will connect guacamole to its database.
 
     oc new-app guacamole/guacamole+guacamole/guacd \
         --name=holy \
@@ -81,15 +81,16 @@ Create a route for the guacamole application.
 Use your browser to access the guacamole application.  On the CDK,
 the URL is:
 
-    holy-guacamole.rhel-cdk.10.1.2.2.xip.io
+    http://holy-guacamole.rhel-cdk.10.1.2.2.xip.io
 
 Make sure that the URL is appropriate for your environment.  The
 default username and password is `guacadmin/guacadmin`.  Once logged
-in, in the upper right hand corner select "guacadmin -> Settings".
+in, go to the upper right hand corner and select "guacadmin ->
+Settings".
 
 Select the "Users" tab and then click the "New User" button.  Set
-the username and password to whatever you desire.  As an admin, you
-can create multiple user accounts that can then connect to their
+the username and password to whatever you desire.  As an administrator,
+you can create multiple user accounts that can then connect to their
 own instances of JBoss Developer Studio.  Also, make sure to assign
 the permissions "Create new connections" and "Change own password".
 Click "Save" to add the user.
