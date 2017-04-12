@@ -115,7 +115,7 @@ the link location for `direct link`.
 Build and deploy the application.  Make sure to paste the `direct
 link` URL in the command below.
 
-    oc new-app https://github.com/rlucente-se-jboss/jbds-via-html5#fed25 \
+    oc new-app https://github.com/rlucente-se-jboss/jbds-via-html5 \
         --name=jbds --strategy=docker
     oc cancel-build jbds-1
     oc start-build jbds \
