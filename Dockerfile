@@ -10,8 +10,8 @@ LABEL vendor="Red Hat"
 LABEL version="0.1"
 LABEL description="JBoss Developer Studio IDE"
 
-ENV FILE_HOST 10.1.2.2
 ENV HOME /home/jbdsuser
+ENV INSTALLER_URL http://10.1.2.2:8000/devstudio-10.3.0.GA-Installer-standalone.jar
 ENV JBDS_JAR devstudio-10.3.0.GA-installer-standalone.jar
 
 # Add the needed packages for JBDS
@@ -29,18 +29,22 @@ RUN    dnf -y update \
            wmctrl \
     && dnf -y clean all
 
-# Set the openbox window manager configuration for all users
-RUN    echo 'export DISPLAY=:1' >> /etc/xdg/openbox/environment \
+# Create installation directory and set the openbox window manager
+# configuration for all users
+RUN    mkdir -p /usr/share/devstudio \
+    && echo 'export DISPLAY=:1' >> /etc/xdg/openbox/environment \
     && echo "/usr/share/devstudio/devstudio -nosplash -data ${HOME}/workspace &" \
              >> /etc/xdg/openbox/autostart
 
+# Add the installation configuration file
+ADD resources/InstallConfigRecord.xml /usr/share/devstudio/
+
 # Install JBoss Developer Studio.  The needed files will be downloaded
-# from the host where the docker build was initiated.  The IP address
-# will need to be adjusted for where the docker build is being run.
-# The reason for this is to not include the JBDS distribution in the
-# docker layer since this image is going to be quite large.  If the
-# docker ADD instruction is used the file becomes a permanent part
-# of that layer, bloating the size of an already large image.
+# from the provided URL. The reason for this is to not include the
+# JBDS distribution in the docker layer since this image is going to
+# be quite large.  If the docker ADD instruction is used the file
+# becomes a permanent part of that layer, bloating the size of an
+# already large image.
 #
 # The for loops scan the JBDS installation for native libraries and
 # then remove any that are already present in the system libraries.
@@ -49,22 +53,20 @@ RUN    echo 'export DISPLAY=:1' >> /etc/xdg/openbox/environment \
 #
 RUN    mkdir -p /tmp/resources \
     && cd /tmp/resources \
-    && curl -L -O http://$FILE_HOST:8000/$JBDS_JAR \
-    && curl -L -O http://$FILE_HOST:8000/InstallConfigRecord.xml \
-    && java -jar $JBDS_JAR InstallConfigRecord.xml \
+    && curl -L -o $JBDS_JAR $INSTALLER_URL \
+    && java -jar $JBDS_JAR /usr/share/devstudio/InstallConfigRecord.xml \
     && rm -fr /tmp/resources \
-    && cd /usr/share/devstudio
-#    && cd /usr/share/devstudio \
-#    && for ext in so chk; do \
-#         for jbdslib in `find . -name "*.$ext"`; do \
-#           jbdslib_basename=`basename $jbdslib`; \
-#           for syslibdir in /lib64 /usr/lib64; do \
-#             for dummy in `find $syslibdir -name $jbdslib_basename`; do \
-#               [ -f $jbdslib ] && rm -f $jbdslib; \
-#             done; \
-#           done; \
-#         done; \
-#       done
+    && cd /usr/share/devstudio \
+    && for ext in so chk; do \
+         for jbdslib in `find . -name "*.$ext"`; do \
+           jbdslib_basename=`basename $jbdslib`; \
+           for syslibdir in /lib64 /usr/lib64; do \
+             for dummy in `find $syslibdir -name $jbdslib_basename`; do \
+               [ -f $jbdslib ] && rm -f $jbdslib; \
+             done; \
+           done; \
+         done; \
+       done
 
 # This script starts and cleanly shuts down JBDS and the Xvnc server
 ADD resources/start.sh /usr/local/bin/
