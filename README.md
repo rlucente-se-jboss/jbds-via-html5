@@ -129,7 +129,7 @@ Once the jbds application has been deployed, the JBoss Developer
 Studio application can be accessed via a browser.  On the CDK, the
 URL is:
 
-    holy-guacamole.rhel-cdk.10.1.2.2.xip.io
+    http://holy-guacamole.rhel-cdk.10.1.2.2.xip.io
 
 Make sure that the URL is appropriate for your environment.  When
 presented with the login screen, use the username/password that was
@@ -139,10 +139,12 @@ select "username -> Settings".
 Select the "Connections" tab and then click the "New Connection"
 button.  Set the following parameters:
 
-Name | jbds
-Hostname | jbds.guacamole.svc.cluster.local
-Port | 5901
-Password | VNCPASS
+| Parameter | Value |
+| --------- | ----- |
+| Name | jbds |
+| Hostname | jbds.guacamole.svc.cluster.local |
+| Port | 5901 |
+| Password | VNCPASS |
 
 Click "Save" to add the connection.
 
