@@ -72,9 +72,9 @@ cd ..
 vncserver :1 -name 'Desktop Name' -geometry $SCREEN_SIZE -depth 24
 
 echo "Making JBDS fullscreen ..."
-dummy=$(wait_for_window ' - JBoss Developer Studio' && :)
+dummy=$(wait_for_window ' - Red Hat JBoss Developer Studio' && :)
 jbdswin=`DISPLAY=:1 wmctrl -l | \
-    grep ' - JBoss Developer Studio' | \
+    grep ' - Red Hat JBoss Developer Studio' | \
     cut -d' ' -f1`
 DISPLAY=:1 wmctrl -i -r $jbdswin -b add,fullscreen
 
