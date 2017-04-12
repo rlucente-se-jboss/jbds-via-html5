@@ -18,10 +18,10 @@ ENV JBDS_JAR devstudio-10.3.0.GA-installer-standalone.jar
 RUN    dnf -y update \
     && dnf -y install \
            gettext \
-           gtk2 \
+           gtk3 \
            java-1.8.0-openjdk-devel \
            liberation-sans-fonts \
-           webkitgtk \
+           webkitgtk3 \
            maven \
            nss_wrapper \
            openbox \
