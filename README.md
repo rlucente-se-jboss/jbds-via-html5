@@ -155,8 +155,8 @@ browser window.
 ## Go Crazy!
 This brings development with OpenShift Container Platform to an
 almost [Inception](http://www.imdb.com/title/tt1375666/) level.  In
-JBDS, you can click on the "OpenShift" tab in the bottom tab and
+JBDS, you can click on the "OpenShift" tab in the bottom pane and
 connect to the OpenShift cluster.  Be aware that JBDS is running
 in a container within the OpenShift cluster and you're connecting
-to the OpenShift cluster from within the cluster to develop additional
-applications on the cluster.
+to the OpenShift cluster from a container within the cluster to
+develop additional applications on the cluster.
