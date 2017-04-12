@@ -11,8 +11,6 @@ LABEL version="0.1"
 LABEL description="JBoss Developer Studio IDE"
 
 ENV HOME /home/jbdsuser
-ENV INSTALLER_URL http://10.1.2.2:8000/devstudio-10.3.0.GA-Installer-standalone.jar
-ENV JBDS_JAR devstudio-10.3.0.GA-installer-standalone.jar
 
 # Add the needed packages for JBDS
 RUN    dnf -y update \

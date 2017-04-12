@@ -114,8 +114,10 @@ the link location for `Direct Link`.
 Build and deploy the application.  Make sure to paste the `Direct
 Link` URL in the command below.
 
-    oc new-app https://github.com/rlucente-se-jboss/jbds-via-html5.git \
-        --name=jbds --strategy=docker -e INSTALLER_URL=<direct-link-URL>
+    oc new-app https://github.com/rlucente-se-jboss/jbds-via-html5#fed25 \
+        --name=jbds --strategy=docker \
+        -e JBDS_JAR=devstudio-10.3.0.GA-installer-standalone.jar \
+        -e INSTALLER_URL=<direct-link-URL>
 
 This will take a little time to build the container image.
 
