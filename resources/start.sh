@@ -69,7 +69,7 @@ echo "Screen resolution set to $SCREEN_SIZE"
 
 echo "Launching  Xvnc which launches openbox and JBDS ..."
 cd ..
-vncserver :1 -localhost -name 'Desktop Name' -geometry $SCREEN_SIZE -depth 24
+vncserver :1 -name 'Desktop Name' -geometry $SCREEN_SIZE -depth 24
 
 echo "Making JBDS fullscreen ..."
 dummy=$(wait_for_window ' - JBoss Developer Studio' && :)
