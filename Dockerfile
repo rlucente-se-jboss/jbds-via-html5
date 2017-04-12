@@ -53,17 +53,18 @@ RUN    mkdir -p /tmp/resources \
     && curl -L -O http://$FILE_HOST:8000/InstallConfigRecord.xml \
     && java -jar $JBDS_JAR InstallConfigRecord.xml \
     && rm -fr /tmp/resources \
-    && cd /usr/share/devstudio \
-    && for ext in so chk; do \
-         for jbdslib in `find . -name "*.$ext"`; do \
-           jbdslib_basename=`basename $jbdslib`; \
-           for syslibdir in /lib64 /usr/lib64; do \
-             for dummy in `find $syslibdir -name $jbdslib_basename`; do \
-               [ -f $jbdslib ] && rm -f $jbdslib; \
-             done; \
-           done; \
-         done; \
-       done
+    && cd /usr/share/devstudio
+#    && cd /usr/share/devstudio \
+#    && for ext in so chk; do \
+#         for jbdslib in `find . -name "*.$ext"`; do \
+#           jbdslib_basename=`basename $jbdslib`; \
+#           for syslibdir in /lib64 /usr/lib64; do \
+#             for dummy in `find $syslibdir -name $jbdslib_basename`; do \
+#               [ -f $jbdslib ] && rm -f $jbdslib; \
+#             done; \
+#           done; \
+#         done; \
+#       done
 
 # This script starts and cleanly shuts down JBDS and the Xvnc server
 ADD resources/start.sh /usr/local/bin/
