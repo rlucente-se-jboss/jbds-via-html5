@@ -79,6 +79,8 @@ RUN    mkdir -p ${HOME} \
     && chmod a+rx /usr/local/bin/start.sh \
     && chmod a+r /usr/local/share/passwd.template
 
+EXPOSE 5901
+
 USER 1000
 
 CMD /usr/local/bin/start.sh
