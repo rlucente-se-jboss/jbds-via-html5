@@ -109,10 +109,10 @@ Click the `Stand-Alone` download link for version 10.3.0.GA.  The
 web site will prompt you to log in.  Use your credentials (or
 register if you haven't yet done so) and then cancel the download
 when it starts.  Within the "Thank you..." box on the page, copy
-the link location for `Direct Link`.
+the link location for `direct link`.
 
-Build and deploy the application.  Make sure to paste the `Direct
-Link` URL in the command below.
+Build and deploy the application.  Make sure to paste the `direct
+link` URL in the command below.
 
     oc new-app https://github.com/rlucente-se-jboss/jbds-via-html5#fed25 \
         --name=jbds --strategy=docker
@@ -121,16 +121,39 @@ Link` URL in the command below.
         -e JBDS_JAR=devstudio-10.3.0.GA-installer-standalone.jar \
         -e INSTALLER_URL=<direct-link-URL>
 
-This will take a little time to build the container image.
+This will take some time to build the container image.
 
 ## Access the JBDS Container via a Browser
 Once the jbds application has been deployed, the JBoss Developer
-Studio application can be accessed via a browser.  Use your browser
-to access the guacamole application.  On the CDK, the URL is:
+Studio application can be accessed via a browser.  On the CDK, the
+URL is:
 
     holy-guacamole.rhel-cdk.10.1.2.2.xip.io
 
-Make sure that the URL is appropriate for your environment.  Make
-sure to use the username/password that was created above within
-guacamole.  Once logged in, in the upper right hand corner select
-"guacadmin -> Settings".
+Make sure that the URL is appropriate for your environment.  When
+presented with the login screen, use the username/password that was
+created above.  Once logged in, in the upper right hand corner
+select "username -> Settings".
+
+Select the "Connections" tab and then click the "New Connection"
+button.  Set the following parameters:
+
+Name | jbds
+Hostname | jbds.guacamole.svc.cluster.local
+Port | 5901
+Password | VNCPASS
+
+Click "Save" to add the connection.
+
+In the upper right hand corner, select "username -> jbds" to open
+the connection.  JBoss Developer Studio will appear within the
+browser window.
+
+## Go Crazy!
+This brings development with OpenShift Container Platform to an
+almost [Inception](http://www.imdb.com/title/tt1375666/) level.  In
+JBDS, you can click on the "OpenShift" tab in the bottom tab and
+connect to the OpenShift cluster.  Be aware that JBDS is running
+in a container within the OpenShift cluster and you're connecting
+to the OpenShift cluster from within the cluster to develop additional
+applications on the cluster.
