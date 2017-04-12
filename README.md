@@ -115,7 +115,9 @@ Build and deploy the application.  Make sure to paste the `Direct
 Link` URL in the command below.
 
     oc new-app https://github.com/rlucente-se-jboss/jbds-via-html5#fed25 \
-        --name=jbds --strategy=docker \
+        --name=jbds --strategy=docker
+    oc cancel-build jbds-1
+    oc start-build jbds \
         -e JBDS_JAR=devstudio-10.3.0.GA-installer-standalone.jar \
         -e INSTALLER_URL=<direct-link-URL>
 
