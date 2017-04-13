@@ -41,7 +41,7 @@ output.  Put this output into a sql file.
 
 At this point, the mysql pod should be fully running, but it may
 have restarted due to the deployment configuration change to add
-the persistent volume claim).  Get the list of running pods to
+the persistent volume claim.  Get the list of running pods to
 determine the pod-id for mysql.
 
     oc get pods
