@@ -54,7 +54,6 @@ ADD resources/InstallConfigRecord.xml /usr/share/devstudio/
 RUN    mkdir -p /tmp/resources \
     && cd /tmp/resources \
     && curl -L -o $JBDS_JAR $INSTALLER_URL \
-    && curl -L -o $JBDS_UPDATE $UPDATE_URL \
     && java -jar $JBDS_JAR /usr/share/devstudio/InstallConfigRecord.xml \
     && cd /usr/share/devstudio \
     && for ext in so chk; do \
