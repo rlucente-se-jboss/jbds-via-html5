@@ -26,8 +26,8 @@ for users and connection parameters within guacamole.
         --claim-name=mysql-data --claim-size=1G --overwrite
 
 Run the guacamole image to create a database initialization script
-for guacamole.  We use the `oc run` command to run the image with
-an alternate command.
+for guacamole.  Use the `oc run` command to run the image with an
+alternate command.
 
     oc run guacamole --image=guacamole/guacamole --restart=Never \
         --command -- /opt/guacamole/bin/initdb.sh --mysql 
@@ -81,7 +81,7 @@ Create a route for the guacamole application.
 Use your browser to access the guacamole application.  On the CDK,
 the URL is:
 
-    http://holy-guacamole.rhel-cdk.10.1.2.2.xip.io
+    http://holy-guacamole.rhel-cdk.10.1.2.2.xip.io/guacamole
 
 Make sure that the URL is appropriate for your environment.  The
 default username and password is `guacadmin/guacadmin`.  Once logged
@@ -129,7 +129,7 @@ Once the jbds application has been deployed, the JBoss Developer
 Studio application can be accessed via a browser.  On the CDK, the
 URL is:
 
-    http://holy-guacamole.rhel-cdk.10.1.2.2.xip.io
+    http://holy-guacamole.rhel-cdk.10.1.2.2.xip.io/guacamole
 
 Make sure that the URL is appropriate for your environment.  When
 presented with the login screen, use the username/password that was
