@@ -25,6 +25,7 @@ RUN    dnf -y update \
            openbox \
            tigervnc-server \
            wmctrl \
+           origin-clients \
     && dnf -y clean all
 
 # Create installation directory and set the openbox window manager
