@@ -49,11 +49,13 @@ ADD resources/InstallConfigRecord.xml /usr/share/devstudio/
 # Redundant libraries that varied by version resulted in JBDS
 # crashes.
 #
+# Finally, the last command installs the JBoss integration tooling.
+#
 RUN    mkdir -p /tmp/resources \
     && cd /tmp/resources \
     && curl -L -o $JBDS_JAR $INSTALLER_URL \
+    && curl -L -o $JBDS_UPDATE $UPDATE_URL \
     && java -jar $JBDS_JAR /usr/share/devstudio/InstallConfigRecord.xml \
-    && rm -fr /tmp/resources \
     && cd /usr/share/devstudio \
     && for ext in so chk; do \
          for jbdslib in `find . -name "*.$ext"`; do \
@@ -64,7 +66,14 @@ RUN    mkdir -p /tmp/resources \
              done; \
            done; \
          done; \
-       done
+       done \
+    && /usr/share/devstudio/devstudio \
+         -clean -purgeHistory \
+         -application org.eclipse.equinox.p2.director \
+         -noSplash \
+         -repository https://devstudio.redhat.com/10.0/stable/updates/ \
+         -i org.fusesource.ide.camel.editor.feature.feature.group,org.fusesource.ide.core.feature.feature.group,org.jboss.tools.fuse.transformation.feature.feature.group,org.fusesource.ide.jmx.feature.feature.group,org.fusesource.ide.server.extensions.feature.feature.group,org.switchyard.tools.feature.feature.group,org.switchyard.tools.bpel.feature.feature.group,org.switchyard.tools.bpmn2.feature.feature.group,org.teiid.datatools.connectivity.feature.feature.group,org.teiid.designer.feature.feature.group,org.teiid.designer.runtime.feature.feature.group,org.teiid.designer.teiid.client.feature.feature.group \
+    && rm -fr /tmp/resources
 
 # This script starts and cleanly shuts down JBDS and the Xvnc server
 ADD resources/start.sh /usr/local/bin/
