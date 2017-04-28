@@ -29,7 +29,7 @@ Run the guacamole image to create a database initialization script
 for guacamole.  Use the `oc run` command to run the image with an
 alternate command.
 
-    oc run guacamole --image=guacamole/guacamole --restart=Never \
+    oc run guacamole --image=rlucentesejboss/guacamole --restart=Never \
         --command -- /opt/guacamole/bin/initdb.sh --mysql 
 
 This will run the given command within a pod named `guacamole`.
@@ -63,7 +63,7 @@ Now that the database is prepped, create an application where both
 guacamole and guacd are in a single pod.  The additional parameters
 will connect guacamole to its database.
 
-    oc new-app guacamole/guacamole+guacamole/guacd \
+    oc new-app rlucentesejboss/guacamole+guacamole/guacd \
         --name=holy \
         GUACD_HOSTNAME=127.0.0.1 \
         GUACD_PORT=4822 \
