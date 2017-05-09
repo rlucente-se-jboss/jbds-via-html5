@@ -65,6 +65,7 @@ will connect guacamole to its database.
 
     oc new-app rlucentesejboss/guacamole+guacamole/guacd \
         --name=holy \
+        GUACAMOLE_HOME=/home/guacamole/.guacamole \
         GUACD_HOSTNAME=127.0.0.1 \
         GUACD_PORT=4822 \
         MYSQL_HOSTNAME=mysql.guacamole.svc.cluster.local \
