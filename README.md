@@ -102,12 +102,12 @@ limit the size of the container image, some files are downloaded
 at build time.
 
 Get the appropriate URL for the JBoss Developer Studio installer.
-This has been tested against version 10.3.0.GA of the installer.
+This has been tested against version 10.4.0.GA of the installer.
 To get the URL, browse to:
 
     [https://developers.redhat.com/products/devstudio/download/](https://developers.redhat.com/products/devstudio/download/)
 
-Click the `Stand-Alone` download link for version 10.3.0.GA.  The
+Click the `Stand-Alone` download link for version 10.4.0.GA.  The
 web site will prompt you to log in.  Use your credentials (or
 register if you haven't yet done so) and then cancel the download
 when it starts.  Within the "Thank you..." box on the page, copy
@@ -120,7 +120,7 @@ link` URL in the command below.
         --name=jbds --strategy=docker
     oc cancel-build jbds-1
     oc start-build jbds \
-        -e JBDS_JAR=devstudio-10.3.0.GA-installer-standalone.jar \
+        -e JBDS_JAR=devstudio-10.4.0.GA-installer-standalone.jar \
         -e INSTALLER_URL=<direct-link-URL>
 
 This will take some time to build the container image.
