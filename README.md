@@ -82,7 +82,7 @@ Create a route for the guacamole application.
 Use your browser to access the guacamole application.  On the CDK,
 the URL is:
 
-    http://holy-guacamole.rhel-cdk.10.1.2.2.xip.io/guacamole
+    [http://holy-guacamole.rhel-cdk.10.1.2.2.xip.io/guacamole](http://holy-guacamole.rhel-cdk.10.1.2.2.xip.io/guacamole)
 
 Make sure that the URL is appropriate for your environment.  The
 default username and password is `guacadmin/guacadmin`.  Once logged
@@ -105,7 +105,7 @@ Get the appropriate URL for the JBoss Developer Studio installer.
 This has been tested against version 10.3.0.GA of the installer.
 To get the URL, browse to:
 
-    https://developers.redhat.com/products/devstudio/download/
+    [https://developers.redhat.com/products/devstudio/download/](https://developers.redhat.com/products/devstudio/download/)
 
 Click the `Stand-Alone` download link for version 10.3.0.GA.  The
 web site will prompt you to log in.  Use your credentials (or
