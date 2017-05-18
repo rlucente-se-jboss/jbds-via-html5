@@ -71,7 +71,7 @@ RUN    mkdir -p /tmp/resources \
          -clean -purgeHistory \
          -application org.eclipse.equinox.p2.director \
          -noSplash \
-         -repository https://devstudio.redhat.com/10.0/stable/updates/ \
+         -repository https://devstudio.redhat.com/10.0/stable/updates/integration-stack/ \
          -i org.fusesource.ide.camel.editor.feature.feature.group,org.fusesource.ide.core.feature.feature.group,org.jboss.tools.fuse.transformation.feature.feature.group,org.fusesource.ide.jmx.feature.feature.group,org.fusesource.ide.server.extensions.feature.feature.group,org.switchyard.tools.feature.feature.group,org.switchyard.tools.bpel.feature.feature.group,org.switchyard.tools.bpmn2.feature.feature.group,org.teiid.datatools.connectivity.feature.feature.group,org.teiid.designer.feature.feature.group,org.teiid.designer.runtime.feature.feature.group,org.teiid.designer.teiid.client.feature.feature.group \
     && rm -fr /tmp/resources
 
