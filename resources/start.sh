@@ -8,15 +8,15 @@ set -e
 # JBDS if it is shutdown cleanly.
 
 # default screen size
-SCREEN_SIZE="1440x726"
+SCREEN_SIZE="1440x730"
 
 # Generate passwd file based on current UID
 function generate_passwd_file() {
   export USER_ID=$(id -u)
   export GROUP_ID=$(id -g)
-  envsubst < /usr/local/share/passwd.template > ${HOME}/passwd
-  export LD_PRELOAD=libnss_wrapper.so
-  export NSS_WRAPPER_PASSWD=${HOME}/passwd
+  envsubst < /usr/local/share/passwd.template > /tmp/passwd
+  export LD_PRELOAD=/usr/lib64/libnss_wrapper.so
+  export NSS_WRAPPER_PASSWD=/tmp/passwd
   export NSS_WRAPPER_GROUP=/etc/group
 }
 
@@ -28,7 +28,7 @@ function wait_for_window {
     done
 }
 
-# use NSS to use our own passwd file
+# leverage NSS wrapper to use our own passwd file
 generate_passwd_file
 
 # trap signals so we can close cleanly
@@ -91,6 +91,6 @@ vncserver -kill :1
 # remove user restricted files so they can be recreated
 rm -f passwd .vnc
 
-# set all permissions for any user
-dummy=$(chmod -R a+rwX ${HOME}/* && :)
+# set all permissions for root group
+dummy=$(chgrp -R 0 ${HOME} && chmod -R g+rwX ${HOME} && :)
 
