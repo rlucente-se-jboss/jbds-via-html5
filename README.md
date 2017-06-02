@@ -80,9 +80,7 @@ Create a route for the guacamole application.
 
 ## Configure Guacamole Users
 Use your browser to access the guacamole application.  On the CDK,
-the URL is:
-
-    [http://holy-guacamole.rhel-cdk.10.1.2.2.xip.io/guacamole](http://holy-guacamole.rhel-cdk.10.1.2.2.xip.io/guacamole)
+the URL is [http://holy-guacamole.rhel-cdk.10.1.2.2.xip.io/guacamole](http://holy-guacamole.rhel-cdk.10.1.2.2.xip.io/guacamole).
 
 Make sure that the URL is appropriate for your environment.  The
 default username and password is `guacadmin/guacadmin`.  Once logged
@@ -103,9 +101,7 @@ at build time.
 
 Get the appropriate URL for the JBoss Developer Studio installer.
 This has been tested against version 10.4.0.GA of the installer.
-To get the URL, browse to:
-
-    [https://developers.redhat.com/products/devstudio/download/](https://developers.redhat.com/products/devstudio/download/)
+To get the URL, browse to [https://developers.redhat.com/products/devstudio/download/](https://developers.redhat.com/products/devstudio/download/).
 
 Click the `Stand-Alone` download link for version 10.4.0.GA.  The
 web site will prompt you to log in.  Use your credentials (or
@@ -128,9 +124,7 @@ This will take some time to build the container image.
 ## Access the JBDS Container via a Browser
 Once the jbds application has been deployed, the JBoss Developer
 Studio application can be accessed via a browser.  On the CDK, the
-URL is:
-
-    http://holy-guacamole.rhel-cdk.10.1.2.2.xip.io/guacamole
+URL is [http://holy-guacamole.rhel-cdk.10.1.2.2.xip.io/guacamole](http://holy-guacamole.rhel-cdk.10.1.2.2.xip.io/guacamole).
 
 Make sure that the URL is appropriate for your environment.  When
 presented with the login screen, use the username/password that was
