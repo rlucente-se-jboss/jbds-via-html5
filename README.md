@@ -259,7 +259,7 @@ Set the following parameters:
 | Parameter | Value |
 | --------- | ----- |
 | Name | jbds |
-| Hostname | jbds.guacamole.svc.cluster.local |
+| Hostname | jbds.someproject.svc.cluster.local |
 | Port | 5901 |
 | Password | VNCPASS |
 
