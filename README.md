@@ -55,6 +55,10 @@ for the `minishift` commands by adding the `--help` option.
 Make sure to add the `oc` command to your executable search path.
 On my laptop, the path is `$HOME/.minishift/cache/oc/v3.5.5.8/oc`.
 Use whatever path is appropriate for your minishift installation.
+To automatically add the `oc` executable to your path, on Linux and
+OSX you can type:
+
+    eval $(minishift oc-env)
 
 Once minishift has finished starting up, determine the IP address
 for the minishift instance then login:
