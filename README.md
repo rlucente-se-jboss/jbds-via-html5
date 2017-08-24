@@ -234,7 +234,7 @@ as the file:
     python3 -m http.server 8000
 
 Next, use a URL appropriate for your VM host.  In my case, the
-`direct-link-URL' for the `oc start-build ...` command would be
+`direct-link-URL` for the `oc start-build ...` command would be
 [http://192.168.99.1:8000/devstudio-10.4.0.GA-installer-standalone.jar](http://192.168.99.1:8000/devstudio-10.4.0.GA-installer-standalone.jar).
 Log out once the build completes.
 
