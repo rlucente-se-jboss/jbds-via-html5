@@ -225,7 +225,18 @@ Build the image and create the imagestream.  Make sure to paste the
         -e JBDS_JAR=devstudio-10.4.0.GA-installer-standalone.jar \
         -e INSTALLER_URL=<direct-link-URL>
 
-This will take some time to build the container image.
+This will take some time to build the container image.  It's possible
+that the download link may timeout before the build completes.  If
+this happens, you can directly download the file and make it available
+to the build by running the following command in the same directory
+as the file:
+
+    python3 -m http.server 8000
+
+Next, use a URL appropriate for your VM host.  In my case, the
+`direct-link-URL' for the `oc start-build ...` command would be
+[http://192.168.99.1:8000/devstudio-10.4.0.GA-installer-standalone.jar](http://192.168.99.1:8000/devstudio-10.4.0.GA-installer-standalone.jar).
+Log out once the build completes.
 
     oc logout
 
