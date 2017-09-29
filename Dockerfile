@@ -2,12 +2,12 @@
 #                   JBoss Developer Studio via HTML5                   #
 ########################################################################
 
-FROM fedora:25
+FROM fedora:26
 
 MAINTAINER Rich Lucente <rlucente@redhat.com>
 
 LABEL vendor="Red Hat"
-LABEL version="0.1"
+LABEL version="0.2"
 LABEL description="JBoss Developer Studio IDE"
 
 ENV HOME /home/jbdsuser
@@ -67,12 +67,6 @@ RUN    mkdir -p /tmp/resources \
            done; \
          done; \
        done \
-    && /usr/share/devstudio/devstudio \
-         -clean -purgeHistory \
-         -application org.eclipse.equinox.p2.director \
-         -noSplash \
-         -repository https://devstudio.redhat.com/10.0/stable/updates/,https://devstudio.redhat.com/10.0/stable/updates/integration-stack/ \
-         -i org.fusesource.ide.camel.editor.feature.feature.group,org.fusesource.ide.core.feature.feature.group,org.jboss.tools.fuse.transformation.feature.feature.group,org.fusesource.ide.jmx.feature.feature.group,org.fusesource.ide.server.extensions.feature.feature.group,org.switchyard.tools.feature.feature.group,org.switchyard.tools.bpel.feature.feature.group,org.switchyard.tools.bpmn2.feature.feature.group,org.teiid.datatools.connectivity.feature.feature.group,org.teiid.designer.feature.feature.group,org.teiid.designer.runtime.feature.feature.group,org.teiid.designer.teiid.client.feature.feature.group \
     && rm -fr /tmp/resources
 
 # This script starts and cleanly shuts down JBDS and the Xvnc server

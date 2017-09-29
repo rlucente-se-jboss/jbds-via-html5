@@ -155,7 +155,7 @@ The last thing to do is expose a route for the guacamole application.
     oc logout
 
 ## Configure Guacamole Users
-Browse the the guacamole application.  On the CDK, the URL is
+Browse to the guacamole application.  On the CDK, the URL is
 [holy-guacamole.192.168.99.100.nip.io/guacamole](holy-guacamole.192.168.99.100.nip.io/guacamole).
 Make sure that the URL is appropriate for your environment.  The
 login page for guacamole will appear.  Use the default username and
@@ -197,10 +197,10 @@ image, the JBDS installer file is downloaded at build time and then
 deleted after use.
 
 Get the appropriate URL for the JBoss Developer Studio installer.
-This has been tested against version 10.4.0.GA of the installer.
+This has been tested against version 11.0.0.GA of the installer.
 To get the URL, browse to [https://developers.redhat.com/products/devstudio/download/](https://developers.redhat.com/products/devstudio/download/).
 
-Click the `Stand-Alone` download link for version 10.4.0.GA, as shown.
+Click the `Installer` download link for version 11.0.0.GA, as shown.
 
 ![Developers JBDS Download](images/developer-download.png)
 
@@ -222,7 +222,7 @@ Build the image and create the imagestream.  Make sure to paste the
         --name=jbds --strategy=docker
     oc cancel-build jbds-1
     oc start-build jbds \
-        -e JBDS_JAR=devstudio-10.4.0.GA-installer-standalone.jar \
+        -e JBDS_JAR=devstudio-11.0.0.GA-installer-standalone.jar \
         -e INSTALLER_URL=<direct-link-URL>
 
 This will take some time to build the container image.  It's possible
@@ -235,7 +235,7 @@ as the file:
 
 Next, use a URL appropriate for your VM host.  In my case, the
 `direct-link-URL` for the `oc start-build ...` command would be
-[http://192.168.99.1:8000/devstudio-10.4.0.GA-installer-standalone.jar](http://192.168.99.1:8000/devstudio-10.4.0.GA-installer-standalone.jar).
+[http://192.168.99.1:8000/devstudio-11.0.0.GA-installer-standalone.jar](http://192.168.99.1:8000/devstudio-11.0.0.GA-installer-standalone.jar).
 Log out once the build completes.
 
     oc logout

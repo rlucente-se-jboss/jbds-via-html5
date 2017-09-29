@@ -10,7 +10,7 @@
 <installgroup>devstudio</installgroup>
 </com.jboss.devstudio.core.installer.JBossAsSelectPanel>
 <com.jboss.devstudio.core.installer.InstallAdditionalFeaturesPanel id="features">
-<ius>com.jboss.devstudio.core.package,org.testng.eclipse.feature.group,org.eclipse.wst.common_core_EBZ511793.feature.patch.feature.group</ius>
+<ius>com.jboss.devstudio.core.package,org.testng.eclipse.feature.group,com.jboss.devstudio.fuse.feature.feature.group</ius>
 <locations>devstudio</locations>
 </com.jboss.devstudio.core.installer.InstallAdditionalFeaturesPanel>
 <com.jboss.devstudio.core.installer.InstallAdditionalRuntimesPanel id="runtimes">
@@ -21,7 +21,7 @@
 <com.izforge.izpack.panels.SummaryPanel id="summary"/>
 <com.izforge.izpack.panels.InstallPanel id="install"/>
 <com.jboss.devstudio.core.installer.CreateLinkPanel id="createlink">
-<jrelocation>/usr/lib/jvm/java-1.8.0-openjdk/bin/java</jrelocation>
+<jrelocation>/etc/alternatives/java_sdk/bin/java</jrelocation>
 </com.jboss.devstudio.core.installer.CreateLinkPanel>
 <com.izforge.izpack.panels.ShortcutPanel id="shortcut"/>
 <com.jboss.devstudio.core.installer.ShortcutPanelPatch id="shortcutpatch"/>
